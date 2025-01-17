@@ -9,7 +9,7 @@ app.engine('hbs', handlebars.engine({
 app.set('view engine', 'hbs');
 app.set('views', './src/views');
 
-app.use(express.static('src/public')); //Load the static files from folder Public.
+app.use('/static', express.static('src/public')); //Load the static files from folder Public.
 
 app.get('/', (req, res) => {
     res.render('home', { layout: false })
