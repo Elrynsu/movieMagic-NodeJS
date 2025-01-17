@@ -1,5 +1,5 @@
 import express from 'express';
-import movies from '../movies.js';
+import movies from '../movies.js'; // Temporary solution to simulate dynamic page with data
 
 const router = express.Router();
 
