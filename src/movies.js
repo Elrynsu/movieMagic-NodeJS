@@ -8,7 +8,7 @@ export default [
         year: '2021',
         director: 'Rob Marshall',
         category: 'Movie',
-        rating: '6.6'
+        rating: 6.6
     },
     {
         id: 'seeb367f-b9e1-4a15-a767-af6410a75421',
@@ -19,6 +19,6 @@ export default [
         year: '2020',
         director: 'Christopher Nolan',
         category: 'Movie',
-        rating: '7.3'
+        rating: 7.3
     }
 ]

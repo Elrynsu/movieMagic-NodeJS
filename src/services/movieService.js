@@ -14,7 +14,8 @@ const movieService = {
 
         movies.push({
             id: newId,
-            ...movieData, //Spread data;
+            ...movieData, //Spread data;,
+            rating: Number(movieData.rating)
         });
         
         return newId;
