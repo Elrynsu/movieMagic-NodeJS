@@ -1,9 +1,12 @@
 import express from 'express';
-import movies from '../movies.js'; // Temporary solution to simulate dynamic page with data
+import movieService from '../services/movieService.js';
+
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
+    const movies = movieService.getAll();
+    
     res.render('home', { movies });
 });
 

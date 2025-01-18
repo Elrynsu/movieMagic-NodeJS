@@ -1,4 +1,5 @@
 import movies from "../movies.js";
+import { v4 as uuid } from 'uuid'
 
 const movieService = {
     findMovie(movieId) {
@@ -7,6 +8,19 @@ const movieService = {
         //TODO - logic if no movies found.
         
         return result;
+    },
+    create(movieData) {
+        const newId = uuid();
+
+        movies.push({
+            id: newId,
+            ...movieData, //Spread data;
+        });
+        
+        return newId;
+    },
+    getAll() {
+        return movies;
     }
 };
 
