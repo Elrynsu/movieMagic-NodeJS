@@ -2,7 +2,7 @@ import Movie from "../models/Movie.js";
 
 const movieService = {
     findMovie(movieId) {
-        const result = movies.find(movie => movie.id === movieId);
+        const result = Movie.find(movie => movie.id === movieId);
     
         //TODO - logic if no movies found.
         
