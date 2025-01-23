@@ -3,9 +3,9 @@ import movieService from '../services/movieService.js';
 
 const movieController = express.Router();
 
-movieController.get('/search', (req, res) => {
+movieController.get('/search', async (req, res) => {
     const filter = req.query;
-    const movies = movieService.getAll(filter);
+    const movies = await movieService.getAll(filter);
     
     res.render('search', { movies, filter });
 })
@@ -22,11 +22,11 @@ movieController.post('/create', async(req, res) => {
     res.redirect('/');
 })
 
-movieController.get('/:movieId/details', (req, res) => {
+movieController.get('/:movieId/details', async (req, res) => {
     const movieId = req.params.movieId;
-    const movie = movieService.findMovie(movieId);
+    const movie = await movieService.findMovie(movieId);
 
-    res.render('details', { movie });
+    res.render('movie/details', { movie });
 })
 
 export default movieController;

@@ -22,7 +22,8 @@ try {
 app.engine('hbs', handlebars.engine({
     extname: 'hbs',
     runtimeOptions: {
-        allowProtoPropertiesByDefault: true,  //Option to tell -
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true,  //Option to tell -
         // -handlebars to treat MongoDB special objects like plain JS ones.
     },
     helpers: {
