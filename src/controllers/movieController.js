@@ -27,6 +27,10 @@ movieController.get('/:movieId/details', async (req, res) => {
     const movie = await movieService.findMovie(movieId);
 
     res.render('movie/details', { movie });
+});
+
+movieController.get('/:movieId/attachCast', (req, res) => {
+    res.render('movie/attachCast');
 })
 
 export default movieController;
