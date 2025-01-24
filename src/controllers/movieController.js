@@ -27,6 +27,7 @@ movieController.get('/:movieId/details', async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.findMovie(movieId);
 
+
     res.render('movie/details', { movie });
 });
 
