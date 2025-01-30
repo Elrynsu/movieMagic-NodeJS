@@ -3,6 +3,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
 
+const SECRET = process.env.SECRET;
+
 export default {
     register(userData) {
         return User.create(userData);
@@ -25,7 +27,7 @@ export default {
             id: user._id,
             email: user.email,
         }
-        const token = jwt.sign(payload, process.env.SECRET, {expiresIn: '2h'});
+        const token = jwt.sign(payload, SECRET, {expiresIn: '2h'});
 
         //Return token
         return token;

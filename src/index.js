@@ -5,6 +5,7 @@ import 'dotenv/config';
 import cookieParser from "cookie-parser";
 
 import routes from './routes.js';
+import { authMiddleware } from "./middlewares/authMiddleware.js";
 import showRatingHelper from "./helpers/ratingHelper.js";
 
 const app = express();
@@ -39,6 +40,7 @@ app.set('views', './src/views');
 app.use('/static', express.static('src/public')); //Load the static files from folder Public.
 app.use(express.urlencoded({ extended: false })); //Learn express to parse form data.
 app.use(cookieParser()); //Learn express to store cookies with cookieParser.
+app.use(authMiddleware);
 
 app.use(routes); // All routes in routes file.
 
