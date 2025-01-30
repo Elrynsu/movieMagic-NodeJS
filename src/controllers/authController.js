@@ -13,7 +13,7 @@ authController.post('/register', async (req, res) => {
 
     await authService.register(userData);
 
-    res.end();
+    res.redirect('/');
 })
 
 
