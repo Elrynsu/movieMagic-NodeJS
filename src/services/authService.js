@@ -1,5 +1,7 @@
 import User from "../models/User.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import 'dotenv/config';
 
 export default {
     register(userData) {
@@ -19,10 +21,13 @@ export default {
         }
 
         //Generate token
-
-
+        const payload = {
+            id: user._id,
+            email: user.email,
+        }
+        const token = jwt.sign(payload, process.env.SECRET, {expiresIn: '2h'});
 
         //Return token
-        return;
+        return token;
     }
 }
