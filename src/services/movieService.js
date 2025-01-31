@@ -8,11 +8,12 @@ const movieService = {
         
         return result;
     },
-    create(movieData) {
+    create(movieData, creatorId) {
         const result = Movie.create({
             ...movieData, //Spread data;,
             rating: Number(movieData.rating),
-            year: Number(movieData.year)
+            year: Number(movieData.year),
+            creator: creatorId
         });
 
         return result;
