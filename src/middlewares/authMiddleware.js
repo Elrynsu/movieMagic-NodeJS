@@ -17,6 +17,7 @@ export const authMiddleware = (req, res, next) => {
 
         //Attach decoded token to request
         req.user = decodedToken;
+        res.locals.user = decodedToken;
 
         next();
     }catch(err) {
