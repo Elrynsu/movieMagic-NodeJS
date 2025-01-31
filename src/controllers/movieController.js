@@ -64,11 +64,32 @@ movieController.get('/:movieId/delete', async (req, res) => {
     res.redirect('/');
 });
 
+function getCategoriesData(category) {
+    const categoriesMap = {
+        'tv-show': 'TV Show',
+        'animation': 'Animation',
+        'movie': 'Movie',
+        'documentary': 'Documentary',
+        'short-film': 'Short Film',
+    };
+
+    const categories = Object.keys(categoriesMap).map(value => ({
+        value,
+        label: categoriesMap[value],
+        selected: value === category ? 'selected' : '',
+    }));
+
+    return categories;
+}
+
 movieController.get('/:movieId/edit', async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.findMovie(movieId);
 
-    res.render('movie/edit', { movie });
+    const categories = getCategoriesData(movie.category);
+    console.log(categories);
+
+    res.render('movie/edit', { movie, categories });
 })
 
 
