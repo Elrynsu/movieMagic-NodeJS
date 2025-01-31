@@ -43,7 +43,11 @@ const movieService = {
         await movie.save();
 
         return movie;
+    },
+    delete(movieId) {
+        return Movie.findByIdAndDelete(movieId);
     }
+
 };
 
 export default movieService;
