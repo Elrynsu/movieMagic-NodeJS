@@ -8,7 +8,7 @@ export const authMiddleware = (req, res, next) => {
     const token = req.cookies['auth'];
 
     if(!token) {
-        next();
+        return next();
     }
 
     //Validate the token
@@ -20,7 +20,8 @@ export const authMiddleware = (req, res, next) => {
 
         next();
     }catch(err) {
-        
+        res.clearCookie('auth');
+        res.redirect('/auth/login');
     }
     
 }
