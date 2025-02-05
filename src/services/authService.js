@@ -6,7 +6,17 @@ import 'dotenv/config';
 const SECRET = process.env.SECRET;
 
 export default {
-    register(userData) {
+    async register(userData) {
+        //check if password match rePassword
+        if(userData.password !== userData.rePassword) {
+            throw new Error('Password missmatch!');
+        }
+
+        const userCount = await User.userCountDocuments({email: userData.email});
+        if(userCount > 0) {
+            throw new Error('This email already exists');
+        }
+
         return User.create(userData);
     },
     async login(email, password) {
