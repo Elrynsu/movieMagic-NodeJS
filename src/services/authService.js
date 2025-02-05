@@ -12,7 +12,7 @@ export default {
             throw new Error('Password missmatch!');
         }
 
-        const userCount = await User.userCountDocuments({email: userData.email});
+        const userCount = await User.countDocuments({email: userData.email});
         if(userCount > 0) {
             throw new Error('This email already exists');
         }

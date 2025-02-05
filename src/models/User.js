@@ -5,6 +5,7 @@ const userSchema = new Schema({
     email: {
         type: String,
         unique: true,
+        required: [true, 'Email adress is required!'],
         lowercase: true, //Sanitizer -- NOT VALIDATOR
         match: [/\@[a-zA-Z]+.[a-zA-Z]+$/, 'Your email type is incorrect!'],
         minLength: [10, 'Email must be atleast 10 characters long']
