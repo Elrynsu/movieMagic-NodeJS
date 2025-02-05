@@ -5,13 +5,15 @@ const userSchema = new Schema({
     email: {
         type: String,
         unique: true,
+        lowercase: true, //Sanitizer -- NOT VALIDATOR
         match: [/\@[a-zA-Z]+.[a-zA-Z]+$/, 'Your email type is incorrect!'],
         minLength: [10, 'Email must be atleast 10 characters long']
     },
     password: {
         type: String,
         match: /^\w+$/,
-        minLength: [6, 'Password must be atleast 6 characters long!']
+        minLength: [6, 'Password must be atleast 6 characters long!'],
+        trim: true, //Sanitizer -- for formatting data in the DB.
     },
 });
 
